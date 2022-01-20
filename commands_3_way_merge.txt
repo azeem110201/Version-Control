@@ -1,0 +1,113 @@
+(base) azeem@azeem:~$ cd Zemoso/Git\ Tasks/
+(base) azeem@azeem:~/Zemoso/Git Tasks$ ls
+'Basic Commands'    'Basic Stagging'   commands_ff_merge.txt   README.md
+'Basics Branching'   branching         greeting.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch
+* master
+  mybranch
+  mybranch2
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch greeting
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git checkout greeting 
+Switched to branch 'greeting'
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano greetings.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add greetings.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "added greeting.txt from greeting branch"
+[greeting 83bfc0b] added greeting.txt from greeting branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 greetings.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano README.md 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add README.md 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "updated README.md"
+[master a59b0dc] updated README.md
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline --graph --all
+* a59b0dc (HEAD -> master) updated README.md
+| * 83bfc0b (greeting) added greeting.txt from greeting branch
+|/  
+* e82e99f (origin/master) added commands for forward merge
+*   72bdf0d Merge branch 'feature/uppercase'
+|\  
+| * a6493a3 greeting.txt from feature/uppercase
+| * 7727858 (origin/mybranch2, mybranch2) commands.txt from mybranch2
+| * 7f7bd2e file1.txt from mybranch2
+* | fd4dc56 added commands.txt for branching basics
+* | 5b10b80 file1.txt from master
+|/  
+* 2a7fcec (mybranch) added commands.txt for staging task
+* f7f10f8 added file.txt
+* bc11585 deleted file.txt
+* 5688119 file.txt added
+* 916a2f9 Added README.md
+* a22f2d0 added commands.md file
+* 6ad258d file changed for second time
+* 6329ecd file changed for first time
+* 2234024 created test.txt empty file
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git diff master greeting 
+diff --git a/README.md b/README.md
+index 8063f8f..4c51c39 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1 @@
+-### Find all my version-control tasks here in this repository
++### Find all my version-control tasks here in this repo
+\ No newline at end of file
+diff --git a/greetings.txt b/greetings.txt
+new file mode 100644
+index 0000000..ce92394
+--- /dev/null
++++ b/greetings.txt
+@@ -0,0 +1 @@
++this is greetings.txt from greeting branch
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch
+  greeting
+* master
+  mybranch
+  mybranch2
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git merge greeting 
+Merge made by the 'recursive' strategy.
+ greetings.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 greetings.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline --graph --all
+*   819a8f2 (HEAD -> master) Merge branch 'greeting'
+|\  
+| * 83bfc0b (greeting) added greeting.txt from greeting branch
+* | a59b0dc updated README.md
+|/  
+* e82e99f (origin/master) added commands for forward merge
+*   72bdf0d Merge branch 'feature/uppercase'
+|\  
+| * a6493a3 greeting.txt from feature/uppercase
+| * 7727858 (origin/mybranch2, mybranch2) commands.txt from mybranch2
+| * 7f7bd2e file1.txt from mybranch2
+* | fd4dc56 added commands.txt for branching basics
+* | 5b10b80 file1.txt from master
+|/  
+* 2a7fcec (mybranch) added commands.txt for staging task
+* f7f10f8 added file.txt
+* bc11585 deleted file.txt
+* 5688119 file.txt added
+* 916a2f9 Added README.md
+* a22f2d0 added commands.md file
+* 6ad258d file changed for second time
+* 6329ecd file changed for first time
+* 2234024 created test.txt empty file
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
