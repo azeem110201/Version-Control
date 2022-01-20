@@ -1,0 +1,69 @@
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch feature/uppercase
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git switch feature/uppercase 
+Switched to branch 'feature/uppercase'
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch feature/uppercase
+nothing to commit, working tree clean
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano greeting.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add greeting.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch feature/uppercase
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   greeting.txt
+
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "greeting.txt from feature/uppercase"
+[feature/uppercase a6493a3] greeting.txt from feature/uppercase
+ 1 file changed, 1 insertion(+)
+ create mode 100644 greeting.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch
+* feature/uppercase
+  master
+  mybranch
+  mybranch2
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --online --graph --all
+fatal: unrecognized argument: --online
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline --graph --all
+* a6493a3 (HEAD -> feature/uppercase) greeting.txt from feature/uppercase
+* 7727858 (origin/mybranch2, mybranch2) commands.txt from mybranch2
+* 7f7bd2e file1.txt from mybranch2
+| * fd4dc56 (origin/master, master) added commands.txt for branching basics
+| * 5b10b80 file1.txt from master
+|/  
+* 2a7fcec (mybranch) added commands.txt for staging task
+* f7f10f8 added file.txt
+* bc11585 deleted file.txt
+* 5688119 file.txt added
+* 916a2f9 Added README.md
+* a22f2d0 added commands.md file
+* 6ad258d file changed for second time
+* 6329ecd file changed for first time
+* 2234024 created test.txt empty file
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch master
+fatal: A branch named 'master' already exists.
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git switch master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+(base) azeem@azeem:~/Zemoso/Git Tasks$ ls
+'Basic Commands'  'Basics Branching'  'Basic Stagging'   README.md
+(base) azeem@azeem:~/Zemoso/Git Tasks$ diff master feature/uppercase
+diff: master: No such file or directory
+diff: feature/uppercase: No such file or directory
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git merge feature/uppercase 
+Merge made by the 'recursive' strategy.
+ branching/commands.txt | 113 ++++++++++++++++++++++++++++++++++++
+ branching/file1.txt    |   1 +
+ greeting.txt           |   1 +
+ 3 files changed, 115 insertions(+)
+ create mode 100644 branching/commands.txt
+ create mode 100644 branching/file1.txt
+ create mode 100644 greeting.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ ls
+'Basic Commands'    'Basic Stagging'   greeting.txt
+'Basics Branching'   branching         README.md
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch -D feature/uppercase 
+Deleted branch feature/uppercase (was a6493a3).
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch
+* master
+  mybranch
+  mybranch2
