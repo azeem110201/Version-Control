@@ -1,0 +1,68 @@
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano file1.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add file1.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "file1.txt added from master"
+[master 7b242f5] file1.txt added from master
+ 3 files changed, 1 insertion(+), 70 deletions(-)
+ delete mode 100644 commands_ff_merge.txt
+ create mode 100644 file1.txt
+ delete mode 100644 greeting.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch
+  greeting
+* master
+  mybranch
+  mybranch2
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch -D mybranch2
+Deleted branch mybranch2 (was 7727858).
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch feature/uppercase
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git checkout feature/uppercase 
+Switched to branch 'feature/uppercase'
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano file2.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add file2.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "file2.txt added from feature/uppercase branch"
+[feature/uppercase 7fae474] file2.txt added from feature/uppercase branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline --graph --all
+* 7fae474 (feature/uppercase) file2.txt added from feature/uppercase branch
+* 7b242f5 (HEAD -> master) file1.txt added from master
+* 357753c (origin/master) added commands file for 3 way merge operation
+*   819a8f2 Merge branch 'greeting'
+|\  
+| * 83bfc0b (greeting) added greeting.txt from greeting branch
+* | a59b0dc updated README.md
+|/  
+* e82e99f added commands for forward merge
+*   72bdf0d Merge branch 'feature/uppercase'
+|\  
+| * a6493a3 greeting.txt from feature/uppercase
+| * 7727858 (origin/mybranch2) commands.txt from mybranch2
+| * 7f7bd2e file1.txt from mybranch2
+* | fd4dc56 added commands.txt for branching basics
+* | 5b10b80 file1.txt from master
+|/  
+* 2a7fcec (mybranch) added commands.txt for staging task
+* f7f10f8 added file.txt
+* bc11585 deleted file.txt
+* 5688119 file.txt added
+* 916a2f9 Added README.md
+* a22f2d0 added commands.md file
+* 6ad258d file changed for second time
+* 6329ecd file changed for first time
+* 2234024 created test.txt empty file
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch
+  feature/uppercase
+  greeting
+* master
+  mybranch
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git merge feature/uppercase 
+Updating 7b242f5..7fae474
+Fast-forward
+ file2.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch -D feature/uppercase 
+Deleted branch feature/uppercase (was 7fae474).
