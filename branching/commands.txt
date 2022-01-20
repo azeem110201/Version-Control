@@ -1,0 +1,113 @@
+(base) azeem@azeem:~/Zemoso/Git Tasks$ ls
+'Basic Commands'  'Basic Stagging'   README.md
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch mybranch
+fatal: A branch named 'mybranch' already exists.
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch mybranch2
+(base) azeem@azeem:~/Zemoso/Git Tasks$ mkdir branching
+(base) azeem@azeem:~/Zemoso/Git Tasks$ cd branching/
+(base) azeem@azeem:~/Zemoso/Git Tasks/branching$ git branch
+  master
+* mybranch
+  mybranch2
+(base) azeem@azeem:~/Zemoso/Git Tasks/branching$ cd ..
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git switch mybranch2
+Switched to branch 'mybranch2'
+(base) azeem@azeem:~/Zemoso/Git Tasks$ cd branching/
+(base) azeem@azeem:~/Zemoso/Git Tasks/branching$ cd ..
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano branching/file1.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch mybranch2
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	branching/
+
+nothing added to commit but untracked files present (use "git add" to track)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log
+commit 2a7fcec9b4d4fdf199d7f804e1f6385a101e8d89 (HEAD -> mybranch2, origin/master, mybranch)
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Thu Jan 20 17:13:24 2022 +0530
+
+    added commands.txt for staging task
+
+commit f7f10f890722b9dfcbe49fc14920f724894abea7
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Thu Jan 20 16:49:15 2022 +0530
+
+    added file.txt
+
+commit bc1158553d760ee602bfa2fd55aba63662bc3827
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Thu Jan 20 16:41:56 2022 +0530
+
+    deleted file.txt
+
+commit 5688119383c73fa9f30a9f05afa3ae78f116bcb4
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Thu Jan 20 16:39:59 2022 +0530
+
+    file.txt added
+
+commit 916a2f986f450a3d82ff94a40912d96eb347c0c1
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Thu Jan 20 16:29:41 2022 +0530
+
+    Added README.md
+
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline
+2a7fcec (HEAD -> mybranch2, origin/master, mybranch) added commands.txt for staging task
+f7f10f8 added file.txt
+bc11585 deleted file.txt
+5688119 file.txt added
+916a2f9 Added README.md
+a22f2d0 added commands.md file
+6ad258d file changed for second time
+6329ecd file changed for first time
+2234024 created test.txt empty file
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add branching/file1.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "file1.txt from mybranch2"
+[mybranch2 7f7bd2e] file1.txt from mybranch2
+ 1 file changed, 1 insertion(+)
+ create mode 100644 branching/file1.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline
+7f7bd2e (HEAD -> mybranch2) file1.txt from mybranch2
+2a7fcec (origin/master, mybranch) added commands.txt for staging task
+f7f10f8 added file.txt
+bc11585 deleted file.txt
+5688119 file.txt added
+916a2f9 Added README.md
+a22f2d0 added commands.md file
+6ad258d file changed for second time
+6329ecd file changed for first time
+2234024 created test.txt empty file
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git switch master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ ls
+'Basic Commands'  'Basics Branching'  'Basic Stagging'   README.md
+(base) azeem@azeem:~/Zemoso/Git Tasks$ cd "Basics Branching"/
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basics Branching$ ls
+file1.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basics Branching$ cat file1.txt
+azeem from master
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basics Branching$ cd ..
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git diff mybranch2 master
+diff --git a/Basics Branching/file1.txt b/Basics Branching/file1.txt
+new file mode 100644
+index 0000000..745bcb7
+--- /dev/null
++++ b/Basics Branching/file1.txt        
+@@ -0,0 +1 @@
++azeem from master
+diff --git a/branching/file1.txt b/branching/file1.txt
+deleted file mode 100644
+index 442f841..0000000
+--- a/branching/file1.txt
++++ /dev/null
+@@ -1 +0,0 @@
