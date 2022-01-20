@@ -1,0 +1,134 @@
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ touch file.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ echo 2 > file.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git diff
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git diff --staged
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git add file.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git diff
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git diff --staged
+diff --git a/Basic Stagging/file.txt b/Basic Stagging/file.txt
+new file mode 100644
+index 0000000..0cfbf08
+--- /dev/null
++++ b/Basic Stagging/file.txt   
+@@ -0,0 +1 @@
++2
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ echo 3 > file.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git diff
+diff --git a/Basic Stagging/file.txt b/Basic Stagging/file.txt
+index 0cfbf08..00750ed 100644
+--- a/Basic Stagging/file.txt   
++++ b/Basic Stagging/file.txt   
+@@ -1 +1 @@
+-2
++3
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git diff --staged
+diff --git a/Basic Stagging/file.txt b/Basic Stagging/file.txt
+new file mode 100644
+index 0000000..0cfbf08
+--- /dev/null
++++ b/Basic Stagging/file.txt   
+@@ -0,0 +1 @@
++2
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   file.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   file.txt
+
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git restore --staged file.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	./
+
+nothing added to commit but untracked files present (use "git add" to track)
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ ls
+file.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ man file.txt
+No manual entry for file.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git add file.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git commit -m "added file.txt"
+[master f7f10f8] added file.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Basic Stagging/file.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git log
+commit f7f10f890722b9dfcbe49fc14920f724894abea7 (HEAD -> master)
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Thu Jan 20 16:49:15 2022 +0530
+
+    added file.txt
+
+commit bc1158553d760ee602bfa2fd55aba63662bc3827
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Thu Jan 20 16:41:56 2022 +0530
+
+    deleted file.txt
+
+commit 5688119383c73fa9f30a9f05afa3ae78f116bcb4
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Thu Jan 20 16:39:59 2022 +0530
+
+    file.txt added
+
+commit 916a2f986f450a3d82ff94a40912d96eb347c0c1 (origin/master)
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Thu Jan 20 16:29:41 2022 +0530
+
+    Added README.md
+
+commit a22f2d0a8898432f344ce7bcd7f84b79032a9e70
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Thu Jan 20 16:20:19 2022 +0530
+
+    added commands.md file
+
+commit 6ad258d75370d24568de9a7e8cabcf84561d8423
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Thu Jan 20 16:09:18 2022 +0530
+
+    file changed for second time
+
+commit 6329ecdea66bb657b5a2905da0a2d3ee43750196
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Thu Jan 20 16:08:25 2022 +0530
+
+    file changed for first time
+
+commit 22340240a324a2a204867de3962d35af05c259b1
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Thu Jan 20 16:06:44 2022 +0530
+
+    created test.txt empty file
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ echo 4 > file.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git restore file.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+(base) azeem@azeem:~/Zemoso/Git Tasks/Basic Stagging$ 
+
