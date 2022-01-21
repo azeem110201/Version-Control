@@ -1,0 +1,131 @@
+base) azeem@azeem:~/Zemoso/Git Tasks$ mkdir "merge conflicts"
+(base) azeem@azeem:~/Zemoso/Git Tasks$ cd merge\ conflicts/
+(base) azeem@azeem:~/Zemoso/Git Tasks/merge conflicts$ code .
+(base) azeem@azeem:~/Zemoso/Git Tasks/merge conflicts$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	./
+
+nothing added to commit but untracked files present (use "git add" to track)
+(base) azeem@azeem:~/Zemoso/Git Tasks/merge conflicts$ cd ..
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	merge conflicts/
+
+nothing added to commit but untracked files present (use "git add" to track)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add merge\ conflicts/index.html 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "added index.html"
+[master 8beabad] added index.html
+ 1 file changed, 73 insertions(+)
+ create mode 100644 merge conflicts/index.html
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   merge conflicts/index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add merge\ conflicts/index.html 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "added dark theme and changed project name"
+[master 65c8759] added dark theme and changed project name
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch myproject
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git switch myproject 
+Switched to branch 'myproject'
+(base) azeem@azeem:~/Zemoso/Git Tasks$ ls
+'Basic Commands'    'Basic Stagging'   command_ff_merge.txt       file1.txt   greetings.txt      README.md   testuppercase.txt
+'Basics Branching'   branching         commands_3_way_merge.txt   file2.txt  'merge conflicts'   reverting
+(base) azeem@azeem:~/Zemoso/Git Tasks$ cd merge\ conflicts/
+(base) azeem@azeem:~/Zemoso/Git Tasks/merge conflicts$ ls
+index.html
+(base) azeem@azeem:~/Zemoso/Git Tasks/merge conflicts$ cd ..
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch
+  greeting
+  master
+  mybranch
+* myproject
+  uppercase2
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch myproject
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   merge conflicts/index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add merge\ conflicts/index.html 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "changed index.html from myproject"
+[myproject 232c296] changed index.html from myproject
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git checkout master 
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   merge conflicts/index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add merge\ conflicts/index.html 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "changed html title tag from master"
+[master aebe8f6] changed html title tag from master
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git checkout myproject 
+Switched to branch 'myproject'
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch myproject
+nothing to commit, working tree clean
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git checkout master 
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git merge myproject 
+Auto-merging merge conflicts/index.html
+CONFLICT (content): Merge conflict in merge conflicts/index.html
+Automatic merge failed; fix conflicts and then commit the result.
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   merge conflicts/index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add merge\ conflicts/index.html 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "resolved conflict with title tag"
+[master c62c44d] resolved conflict with title tag
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch
+  greeting
+* master
+  mybranch
+  myproject
+  uppercase2
