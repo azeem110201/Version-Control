@@ -1,0 +1,108 @@
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano squashing/file1.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add squashing/file1.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "squashing file1"
+[master ce351fd] squashing file1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 squashing/file1.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano squashing/file2.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add squashing/file2.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "squashing file2"
+[master 622c60a] squashing file2
+ 1 file changed, 1 insertion(+)
+ create mode 100644 squashing/file2.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano squashing/file3.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add squashing/file3.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "squashing file3"
+[master cb841d8] squashing file3
+ 1 file changed, 1 insertion(+)
+ create mode 100644 squashing/file3.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log -p -3
+commit cb841d88efb9900b48e6e95fc6bdd35c4bf71a59 (HEAD -> master)
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Fri Jan 21 14:31:01 2022 +0530
+
+    squashing file3
+
+diff --git a/squashing/file3.txt b/squashing/file3.txt
+new file mode 100644
+index 0000000..ef4650c
+--- /dev/null
++++ b/squashing/file3.txt
+@@ -0,0 +1 @@
++squashing file3
+
+commit 622c60af9f03d5a135edc0750da17a838306ee03
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Fri Jan 21 14:30:42 2022 +0530
+
+    squashing file2
+
+diff --git a/squashing/file2.txt b/squashing/file2.txt
+new file mode 100644
+index 0000000..b8d78d2
+--- /dev/null
++++ b/squashing/file2.txt
+@@ -0,0 +1 @@
++squashing file2
+
+commit ce351fd5b86c5ca0212504cd19e55bd1074be547
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Fri Jan 21 14:30:22 2022 +0530
+
+    squashing file1
+
+diff --git a/squashing/file1.txt b/squashing/file1.txt
+new file mode 100644
+index 0000000..052d8dc
+--- /dev/null
++++ b/squashing/file1.txt
+@@ -0,0 +1 @@
++this is file1 for squashing demo
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log -p -3 --oneline
+cb841d8 (HEAD -> master) squashing file3
+diff --git a/squashing/file3.txt b/squashing/file3.txt
+new file mode 100644
+index 0000000..ef4650c
+--- /dev/null
++++ b/squashing/file3.txt
+@@ -0,0 +1 @@
++squashing file3
+622c60a squashing file2
+diff --git a/squashing/file2.txt b/squashing/file2.txt
+new file mode 100644
+index 0000000..b8d78d2
+--- /dev/null
++++ b/squashing/file2.txt
+@@ -0,0 +1 @@
++squashing file2
+ce351fd squashing file1
+diff --git a/squashing/file1.txt b/squashing/file1.txt
+new file mode 100644
+index 0000000..052d8dc
+--- /dev/null
++++ b/squashing/file1.txt
+@@ -0,0 +1 @@
++this is file1 for squashing demo
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline -3
+cb841d8 (HEAD -> master) squashing file3
+622c60a squashing file2
+ce351fd squashing file1
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 8 and 6 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+nothing to commit, working tree clean
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git rebase -i HEAD~3
+[detached HEAD 8d22e7a] squashing file1
+ Date: Fri Jan 21 14:30:22 2022 +0530
+ 3 files changed, 3 insertions(+)
+ create mode 100644 squashing/file1.txt
+ create mode 100644 squashing/file2.txt
+ create mode 100644 squashing/file3.txt
+Successfully rebased and updated refs/heads/master.
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline -3
+8d22e7a (HEAD -> master) squashing file1
+66a3d61 added command.txt for amend
+7b683f2 bar txt file added and typo fixed
