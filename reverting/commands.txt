@@ -1,0 +1,83 @@
+(base) azeem@azeem:~/Zemoso/Git Tasks/reverting$ cd ..
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add reverting/
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "added reverting folder"
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git push
+Username for 'https://github.com': azeem110201
+Password for 'https://azeem110201@github.com': 
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (8/8), 702 bytes | 702.00 KiB/s, done.
+Total 8 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/azeem110201/Version-Control.git
+   fa7028c..3f49ddf  master -> master
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano reverting/file1.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add reverting/file1.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "modified the file that has to be reverted now"
+[master 73b4eef] modified the file that has to be reverted now
+ 1 file changed, 2 insertions(+)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 436 bytes | 436.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/azeem110201/Version-Control.git
+   3f49ddf..73b4eef  master -> master
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git revert HEAD~3
+Removing commands_rebase.txt
+[master 37d0787] Revert "now this file has been reverted"
+ 1 file changed, 94 deletions(-)
+ delete mode 100644 commands_rebase.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline
+185cf8f (HEAD -> master, origin/master) Revert "Revert "file1.txt added in revert operation""
+31b9024 Revert "file2.txt added in revert operation"
+37d0787 Revert "now this file has been reverted"
+73b4eef modified the file that has to be reverted now
+3f49ddf file2.txt added in revert operation
+9f67794 file1.txt added for revert operation
+fa7028c commands for rebase added
+7725f3c (uppercase2) testuppercase created
+3daf36e added commands for fast forward merge
+7fae474 file2.txt added from feature/uppercase branch
+7b242f5 file1.txt added from master
+357753c added commands file for 3 way merge operation
+819a8f2 Merge branch 'greeting'
+a59b0dc updated README.md
+83bfc0b (greeting) added greeting.txt from greeting branch
+e82e99f added commands for forward merge
+72bdf0d Merge branch 'feature/uppercase'
+a6493a3 greeting.txt from feature/uppercase
+7727858 (origin/mybranch2) commands.txt from mybranch2
+fd4dc56 added commands.txt for branching basics
+7f7bd2e file1.txt from mybranch2
+5b10b80 file1.txt from master
+2a7fcec (mybranch) added commands.txt for staging task
+f7f10f8 added file.txt
+bc11585 deleted file.txt
+5688119 file.txt added
+916a2f9 Added README.md
+a22f2d0 added commands.md file
+6ad258d file changed for second time
+6329ecd file changed for first time
+2234024 created test.txt empty file
