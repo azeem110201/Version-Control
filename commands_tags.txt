@@ -1,0 +1,31 @@
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git tag v1.0
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git tag
+v1.0
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git tag -a v1.1 -m "tag for release version 1.1"
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git tag
+v1.0
+v1.1
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git push origin v1.0
+Username for 'https://github.com': ^C
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git push --tags
+Username for 'https://github.com': azeem110201
+Password for 'https://azeem110201@github.com': 
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 167 bytes | 167.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To https://github.com/azeem110201/Version-Control.git
+ * [new tag]         v1.0 -> v1.0
+ * [new tag]         v1.1 -> v1.1
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git tag -d v1.1
+Deleted tag 'v1.1' (was b3fefe6)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git tag
+v1.0
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git push origin -d v1.1
+To https://github.com/azeem110201/Version-Control.git
+ - [deleted]         v1.1
