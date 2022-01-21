@@ -1,0 +1,94 @@
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git branch uppercase2
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline --all
+3daf36e (HEAD -> master, origin/master, uppercase2) added commands for fast forward merge
+7fae474 file2.txt added from feature/uppercase branch
+7b242f5 file1.txt added from master
+357753c added commands file for 3 way merge operation
+819a8f2 Merge branch 'greeting'
+a59b0dc updated README.md
+83bfc0b (greeting) added greeting.txt from greeting branch
+e82e99f added commands for forward merge
+72bdf0d Merge branch 'feature/uppercase'
+a6493a3 greeting.txt from feature/uppercase
+7727858 (origin/mybranch2) commands.txt from mybranch2
+fd4dc56 added commands.txt for branching basics
+7f7bd2e file1.txt from mybranch2
+5b10b80 file1.txt from master
+2a7fcec (mybranch) added commands.txt for staging task
+f7f10f8 added file.txt
+bc11585 deleted file.txt
+5688119 file.txt added
+916a2f9 Added README.md
+a22f2d0 added commands.md file
+6ad258d file changed for second time
+6329ecd file changed for first time
+2234024 created test.txt empty file
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git checkout uppercase2 
+Switched to branch 'uppercase2'
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano testuppercase.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add testuppercase.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "testuppercase created"
+[uppercase2 7725f3c] testuppercase created
+ 1 file changed, 1 insertion(+)
+ create mode 100644 testuppercase.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline
+7725f3c (HEAD -> uppercase2) testuppercase created
+3daf36e (origin/master, master) added commands for fast forward merge
+7fae474 file2.txt added from feature/uppercase branch
+7b242f5 file1.txt added from master
+357753c added commands file for 3 way merge operation
+819a8f2 Merge branch 'greeting'
+a59b0dc updated README.md
+83bfc0b (greeting) added greeting.txt from greeting branch
+e82e99f added commands for forward merge
+72bdf0d Merge branch 'feature/uppercase'
+a6493a3 greeting.txt from feature/uppercase
+7727858 (origin/mybranch2) commands.txt from mybranch2
+fd4dc56 added commands.txt for branching basics
+7f7bd2e file1.txt from mybranch2
+5b10b80 file1.txt from master
+2a7fcec (mybranch) added commands.txt for staging task
+f7f10f8 added file.txt
+bc11585 deleted file.txt
+5688119 file.txt added
+916a2f9 Added README.md
+a22f2d0 added commands.md file
+6ad258d file changed for second time
+6329ecd file changed for first time
+2234024 created test.txt empty file
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git rebase master
+Current branch uppercase2 is up to date.
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git merge uppercase2 
+Updating 3daf36e..7725f3c
+Fast-forward
+ testuppercase.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 testuppercase.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline
+7725f3c (HEAD -> master, uppercase2) testuppercase created
+3daf36e (origin/master) added commands for fast forward merge
+7fae474 file2.txt added from feature/uppercase branch
+7b242f5 file1.txt added from master
+357753c added commands file for 3 way merge operation
+819a8f2 Merge branch 'greeting'
+a59b0dc updated README.md
+83bfc0b (greeting) added greeting.txt from greeting branch
+e82e99f added commands for forward merge
+72bdf0d Merge branch 'feature/uppercase'
+a6493a3 greeting.txt from feature/uppercase
+7727858 (origin/mybranch2) commands.txt from mybranch2
+fd4dc56 added commands.txt for branching basics
+7f7bd2e file1.txt from mybranch2
+5b10b80 file1.txt from master
+2a7fcec (mybranch) added commands.txt for staging task
+f7f10f8 added file.txt
+bc11585 deleted file.txt
+5688119 file.txt added
+916a2f9 Added README.md
+a22f2d0 added commands.md file
+6ad258d file changed for second time
+6329ecd file changed for first time
+2234024 created test.txt empty file
