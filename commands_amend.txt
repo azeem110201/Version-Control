@@ -1,0 +1,171 @@
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log -p
+commit 15f08f52004e9797df506e7720423b9f0bb8a830 (HEAD -> master, origin/master)
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Fri Jan 21 12:40:55 2022 +0530
+
+    reordering history
+
+diff --git a/reorderingHistory.txt b/reorderingHistory.txt
+new file mode 100644
+index 0000000..520bbc0
+--- /dev/null
++++ b/reorderingHistory.txt
+@@ -0,0 +1,235 @@
++(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline --graph
++* d8f8c16 (HEAD -> master, origin/master) added png and commands.txt for merge conflicts
++*   c62c44d resolved conflict with title tag
++|\  
++| * 232c296 (myproject) changed index.html from myproject
++* | aebe8f6 changed html title tag from master
++|/  
++* 65c8759 added dark theme and changed project name
++* 8beabad added index.html
++* 2218cf3 added commands.txt for revert operation
++* 185cf8f Revert "Revert "file1.txt added in revert operation""
++* 31b9024 Revert "file2.txt added in revert operation"
++* 37d0787 Revert "now this file has been reverted"
++* 73b4eef modified the file that has to be reverted now
++* 3f49ddf file2.txt added in revert operation
++* 9f67794 file1.txt added for revert operation
++* fa7028c commands for rebase added
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano bar.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add bar.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   bar.txt
+
+(base) azeem@azeem:~/Zemoso/Git Tasks$ cat bar.txt 
+this is barr file
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "bar txt file added"
+[master 3b275df] bar txt file added
+ 1 file changed, 1 insertion(+)
+ create mode 100644 bar.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano bar.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   bar.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add bar.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit --amend
+[master cfd8000] bar txt file added and typo fixed
+ Date: Fri Jan 21 12:50:03 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 bar.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log p
+fatal: ambiguous argument 'p': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log -p
+commit cfd8000f7351fefd056ac7a98b90b93419397a17 (HEAD -> master)
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Fri Jan 21 12:50:03 2022 +0530
+
+    bar txt file added and typo fixed
+
+diff --git a/bar.txt b/bar.txt
+new file mode 100644
+index 0000000..7986f2c
+--- /dev/null
++++ b/bar.txt
+@@ -0,0 +1 @@
++this is bar file
+
+commit 15f08f52004e9797df506e7720423b9f0bb8a830 (origin/master)
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Fri Jan 21 12:40:55 2022 +0530
+
+    reordering history
+
+diff --git a/reorderingHistory.txt b/reorderingHistory.txt
+new file mode 100644
+index 0000000..520bbc0
+--- /dev/null
++++ b/reorderingHistory.txt
+@@ -0,0 +1,235 @@
++(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline --graph
++* d8f8c16 (HEAD -> master, origin/master) added png and commands.txt for merge conflicts
++*   c62c44d resolved conflict with title tag
++|\  
++| * 232c296 (myproject) changed index.html from myproject
++* | aebe8f6 changed html title tag from master
++|/  
++* 65c8759 added dark theme and changed project name
++* 8beabad added index.html
++* 2218cf3 added commands.txt for revert operation
++* 185cf8f Revert "Revert "file1.txt added in revert operation""
++* 31b9024 Revert "file2.txt added in revert operation"
++* 37d0787 Revert "now this file has been reverted"
++* 73b4eef modified the file that has to be reverted now
++* 3f49ddf file2.txt added in revert operation
++* 9f67794 file1.txt added for revert operation
++* fa7028c commands for rebase added
++* 7725f3c (uppercase2) testuppercase created
++* 3daf36e added commands for fast forward merge
++* 7fae474 file2.txt added from feature/uppercase branch
++* 7b242f5 file1.txt added from master
++* 357753c added commands file for 3 way merge operation
++*   819a8f2 Merge branch 'greeting'
++|\  
++| * 83bfc0b (greeting) added greeting.txt from greeting branch
++* | a59b0dc updated README.md
++|/  
++* e82e99f added commands for forward merge
++*   72bdf0d Merge branch 'feature/uppercase'
++|\  
++| * a6493a3 greeting.txt from feature/uppercase
++| * 7727858 (origin/mybranch2) commands.txt from mybranch2
++| * 7f7bd2e file1.txt from mybranch2
++* | fd4dc56 added commands.txt for branching basics
+
+commit cfd8000f7351fefd056ac7a98b90b93419397a17 (HEAD -> master)
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Fri Jan 21 12:50:03 2022 +0530
+
+    bar txt file added and typo fixed
+
+diff --git a/bar.txt b/bar.txt
+new file mode 100644
+index 0000000..7986f2c
+--- /dev/null
++++ b/bar.txt
+@@ -0,0 +1 @@
++this is bar file
+
+commit 15f08f52004e9797df506e7720423b9f0bb8a830 (origin/master)
+Author: azeem <mohd.abazeem@gmail.com>
+Date:   Fri Jan 21 12:40:55 2022 +0530
+
+    reordering history
+
+diff --git a/reorderingHistory.txt b/reorderingHistory.txt
+new file mode 100644
+index 0000000..520bbc0
+--- /dev/null
++++ b/reorderingHistory.txt
+@@ -0,0 +1,235 @@
++(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline --graph
++* d8f8c16 (HEAD -> master, origin/master) added png and commands.t
+xt for merge conflicts
++*   c62c44d resolved conflict with title tag
++|\  
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit --amend
+[master f9f0f7f] bar txt file added and typo fixed
+ Date: Fri Jan 21 12:50:03 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 bar.txt
