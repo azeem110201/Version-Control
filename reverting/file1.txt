@@ -1,1 +1,3 @@
 this is file1 for revert operation
+
+second line has been added and in future will perform revert op. on this file
