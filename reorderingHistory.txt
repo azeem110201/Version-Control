@@ -1,0 +1,235 @@
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline --graph
+* d8f8c16 (HEAD -> master, origin/master) added png and commands.txt for merge conflicts
+*   c62c44d resolved conflict with title tag
+|\  
+| * 232c296 (myproject) changed index.html from myproject
+* | aebe8f6 changed html title tag from master
+|/  
+* 65c8759 added dark theme and changed project name
+* 8beabad added index.html
+* 2218cf3 added commands.txt for revert operation
+* 185cf8f Revert "Revert "file1.txt added in revert operation""
+* 31b9024 Revert "file2.txt added in revert operation"
+* 37d0787 Revert "now this file has been reverted"
+* 73b4eef modified the file that has to be reverted now
+* 3f49ddf file2.txt added in revert operation
+* 9f67794 file1.txt added for revert operation
+* fa7028c commands for rebase added
+* 7725f3c (uppercase2) testuppercase created
+* 3daf36e added commands for fast forward merge
+* 7fae474 file2.txt added from feature/uppercase branch
+* 7b242f5 file1.txt added from master
+* 357753c added commands file for 3 way merge operation
+*   819a8f2 Merge branch 'greeting'
+|\  
+| * 83bfc0b (greeting) added greeting.txt from greeting branch
+* | a59b0dc updated README.md
+|/  
+* e82e99f added commands for forward merge
+*   72bdf0d Merge branch 'feature/uppercase'
+|\  
+| * a6493a3 greeting.txt from feature/uppercase
+| * 7727858 (origin/mybranch2) commands.txt from mybranch2
+| * 7f7bd2e file1.txt from mybranch2
+* | fd4dc56 added commands.txt for branching basics
+* | 5b10b80 file1.txt from master
+|/  
+* 2a7fcec (mybranch) added commands.txt for staging task
+* f7f10f8 added file.txt
+* bc11585 deleted file.txt
+* 5688119 file.txt added
+* 916a2f9 Added README.md
+* a22f2d0 added commands.md file
+* 6ad258d file changed for second time
+* 6329ecd file changed for first time
+* 2234024 created test.txt empty file
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git reflog
+d8f8c16 (HEAD -> master, origin/master) HEAD@{0}: commit: added png and commands.txt for merge conflicts
+c62c44d HEAD@{1}: commit (merge): resolved conflict with title tag
+aebe8f6 HEAD@{2}: checkout: moving from myproject to master
+232c296 (myproject) HEAD@{3}: checkout: moving from master to myproject
+aebe8f6 HEAD@{4}: commit: changed html title tag from master
+65c8759 HEAD@{5}: checkout: moving from myproject to master
+232c296 (myproject) HEAD@{6}: commit: changed index.html from myproject
+65c8759 HEAD@{7}: checkout: moving from master to myproject
+65c8759 HEAD@{8}: commit: added dark theme and changed project name
+8beabad HEAD@{9}: commit: added index.html
+2218cf3 HEAD@{10}: commit: added commands.txt for revert operation
+185cf8f HEAD@{11}: revert: Revert "Revert "file1.txt added in revert operation""
+31b9024 HEAD@{12}: revert: Revert "file2.txt added in revert operation"
+37d0787 HEAD@{13}: revert: Revert "now this file has been reverted"
+73b4eef HEAD@{14}: commit: modified the file that has to be reverted now
+3f49ddf HEAD@{15}: commit: file2.txt added in revert operation
+9f67794 HEAD@{16}: commit: file1.txt added for revert operation
+fa7028c HEAD@{17}: commit: commands for rebase added
+7725f3c (uppercase2) HEAD@{18}: merge uppercase2: Fast-forward
+3daf36e HEAD@{19}: checkout: moving from uppercase2 to master
+7725f3c (uppercase2) HEAD@{20}: commit: testuppercase created
+3daf36e HEAD@{21}: checkout: moving from master to uppercase2
+3daf36e HEAD@{22}: checkout: moving from uppercase to master
+fe9fe93 HEAD@{23}: checkout: moving from master to uppercase
+3daf36e HEAD@{24}: checkout: moving from uppercase to master
+fe9fe93 HEAD@{25}: commit: test.txt added from uppercase branch
+3daf36e HEAD@{26}: checkout: moving from master to uppercase
+3daf36e HEAD@{27}: commit: added commands for fast forward merge
+7fae474 HEAD@{28}: merge feature/uppercase: Fast-forward
+7b242f5 HEAD@{29}: checkout: moving from feature/uppercase to master
+7fae474 HEAD@{30}: commit: file2.txt added from feature/uppercase branch
+7b242f5 HEAD@{31}: checkout: moving from master to feature/uppercase
+7b242f5 HEAD@{32}: commit: file1.txt added from master
+357753c HEAD@{33}: commit: added commands file for 3 way merge operation
+819a8f2 HEAD@{34}: merge greeting: Merge made by the 'recursive' strategy.
+a59b0dc HEAD@{35}: commit: updated README.md
+e82e99f HEAD@{36}: checkout: moving from greeting to master
+83bfc0b (greeting) HEAD@{37}: commit: added greeting.txt from greeting branch
+e82e99f HEAD@{38}: checkout: moving from master to greeting
+e82e99f HEAD@{39}: commit: added commands for forward merge
+72bdf0d HEAD@{40}: merge feature/uppercase: Merge made by the 'recursive' strategy.
+fd4dc56 HEAD@{41}: checkout: moving from feature/uppercase to master
+a6493a3 HEAD@{42}: commit: greeting.txt from feature/uppercase
+7727858 (origin/mybranch2) HEAD@{43}: checkout: moving from mybranch2 to feature/uppercase
+7727858 (origin/mybranch2) HEAD@{44}: commit: commands.txt from mybranch2
+7f7bd2e HEAD@{45}: checkout: moving from master to mybranch2
+fd4dc56 HEAD@{46}: commit: added commands.txt for branching basics
+5b10b80 HEAD@{47}: checkout: moving from mybranch2 to master
+7f7bd2e HEAD@{48}: commit: file1.txt from mybranch2
+2a7fcec (mybranch) HEAD@{49}: checkout: moving from mybranch to mybranch2
+2a7fcec (mybranch) HEAD@{50}: checkout: moving from master to mybranch
+5b10b80 HEAD@{51}: commit: file1.txt from master
+2a7fcec (mybranch) HEAD@{52}: checkout: moving from mybranch to master
+2a7fcec (mybranch) HEAD@{53}: checkout: moving from master to mybranch
+2a7fcec (mybranch) HEAD@{54}: checkout: moving from mybranch to master
+855dcda HEAD@{55}: commit: file1.txt added to mybranch
+2a7fcec (mybranch) HEAD@{56}: checkout: moving from master to mybranch
+2a7fcec (mybranch) HEAD@{57}: checkout: moving from mybranch to master
+e851ea5 HEAD@{58}: commit: added my name
+6e2e09a HEAD@{59}: commit: added file1.txt
+2a7fcec (mybranch) HEAD@{60}: checkout: moving from master to mybranch
+2a7fcec (mybranch) HEAD@{61}: commit: added commands.txt for staging task
+f7f10f8 HEAD@{62}: commit: added file.txt
+bc11585 HEAD@{63}: commit: deleted file.txt
+5688119 HEAD@{64}: commit: file.txt added
+916a2f9 HEAD@{65}: commit: Added README.md
+a22f2d0 HEAD@{66}: commit: added commands.md file
+6ad258d HEAD@{67}: commit: file changed for second time
+6329ecd HEAD@{68}: commit: file changed for first time
+2234024 HEAD@{69}: commit (initial): created test.txt empty file
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git reflog show HEAD
+d8f8c16 (HEAD -> master, origin/master) HEAD@{0}: commit: added png and commands.txt for merge conflicts
+c62c44d HEAD@{1}: commit (merge): resolved conflict with title tag
+aebe8f6 HEAD@{2}: checkout: moving from myproject to master
+232c296 (myproject) HEAD@{3}: checkout: moving from master to myproject
+aebe8f6 HEAD@{4}: commit: changed html title tag from master
+65c8759 HEAD@{5}: checkout: moving from myproject to master
+232c296 (myproject) HEAD@{6}: commit: changed index.html from myproject
+65c8759 HEAD@{7}: checkout: moving from master to myproject
+65c8759 HEAD@{8}: commit: added dark theme and changed project name
+8beabad HEAD@{9}: commit: added index.html
+2218cf3 HEAD@{10}: commit: added commands.txt for revert operation
+185cf8f HEAD@{11}: revert: Revert "Revert "file1.txt added in revert operation""
+31b9024 HEAD@{12}: revert: Revert "file2.txt added in revert operation"
+37d0787 HEAD@{13}: revert: Revert "now this file has been reverted"
+73b4eef HEAD@{14}: commit: modified the file that has to be reverted now
+3f49ddf HEAD@{15}: commit: file2.txt added in revert operation
+9f67794 HEAD@{16}: commit: file1.txt added for revert operation
+fa7028c HEAD@{17}: commit: commands for rebase added
+7725f3c (uppercase2) HEAD@{18}: merge uppercase2: Fast-forward
+3daf36e HEAD@{19}: checkout: moving from uppercase2 to master
+7725f3c (uppercase2) HEAD@{20}: commit: testuppercase created
+3daf36e HEAD@{21}: checkout: moving from master to uppercase2
+3daf36e HEAD@{22}: checkout: moving from uppercase to master
+fe9fe93 HEAD@{23}: checkout: moving from master to uppercase
+3daf36e HEAD@{24}: checkout: moving from uppercase to master
+fe9fe93 HEAD@{25}: commit: test.txt added from uppercase branch
+3daf36e HEAD@{26}: checkout: moving from master to uppercase
+3daf36e HEAD@{27}: commit: added commands for fast forward merge
+7fae474 HEAD@{28}: merge feature/uppercase: Fast-forward
+7b242f5 HEAD@{29}: checkout: moving from feature/uppercase to master
+7fae474 HEAD@{30}: commit: file2.txt added from feature/uppercase branch
+7b242f5 HEAD@{31}: checkout: moving from master to feature/uppercase
+7b242f5 HEAD@{32}: commit: file1.txt added from master
+357753c HEAD@{33}: commit: added commands file for 3 way merge operation
+819a8f2 HEAD@{34}: merge greeting: Merge made by the 'recursive' strategy.
+a59b0dc HEAD@{35}: commit: updated README.md
+e82e99f HEAD@{36}: checkout: moving from greeting to master
+83bfc0b (greeting) HEAD@{37}: commit: added greeting.txt from greeting branch
+e82e99f HEAD@{38}: checkout: moving from master to greeting
+e82e99f HEAD@{39}: commit: added commands for forward merge
+72bdf0d HEAD@{40}: merge feature/uppercase: Merge made by the 'recursive' strategy.
+fd4dc56 HEAD@{41}: checkout: moving from feature/uppercase to master
+a6493a3 HEAD@{42}: commit: greeting.txt from feature/uppercase
+7727858 (origin/mybranch2) HEAD@{43}: checkout: moving from mybranch2 to feature/uppercase
+7727858 (origin/mybranch2) HEAD@{44}: commit: commands.txt from mybranch2
+7f7bd2e HEAD@{45}: checkout: moving from master to mybranch2
+fd4dc56 HEAD@{46}: commit: added commands.txt for branching basics
+5b10b80 HEAD@{47}: checkout: moving from mybranch2 to master
+7f7bd2e HEAD@{48}: commit: file1.txt from mybranch2
+2a7fcec (mybranch) HEAD@{49}: checkout: moving from mybranch to mybranch2
+2a7fcec (mybranch) HEAD@{50}: checkout: moving from master to mybranch
+5b10b80 HEAD@{51}: commit: file1.txt from master
+2a7fcec (mybranch) HEAD@{52}: checkout: moving from mybranch to master
+2a7fcec (mybranch) HEAD@{53}: checkout: moving from master to mybranch
+2a7fcec (mybranch) HEAD@{54}: checkout: moving from mybranch to master
+855dcda HEAD@{55}: commit: file1.txt added to mybranch
+2a7fcec (mybranch) HEAD@{56}: checkout: moving from master to mybranch
+2a7fcec (mybranch) HEAD@{57}: checkout: moving from mybranch to master
+e851ea5 HEAD@{58}: commit: added my name
+6e2e09a HEAD@{59}: commit: added file1.txt
+2a7fcec (mybranch) HEAD@{60}: checkout: moving from master to mybranch
+2a7fcec (mybranch) HEAD@{61}: commit: added commands.txt for staging task
+f7f10f8 HEAD@{62}: commit: added file.txt
+bc11585 HEAD@{63}: commit: deleted file.txt
+5688119 HEAD@{64}: commit: file.txt added
+916a2f9 HEAD@{65}: commit: Added README.md
+a22f2d0 HEAD@{66}: commit: added commands.md file
+6ad258d HEAD@{67}: commit: file changed for second time
+6329ecd HEAD@{68}: commit: file changed for first time
+2234024 HEAD@{69}: commit (initial): created test.txt empty file
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git rebase -i c62c44d
+Successfully rebased and updated refs/heads/master.
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log --oneline --graph
+* d8f8c16 (HEAD -> master, origin/master) added png and commands.txt for merge conflicts
+*   c62c44d resolved conflict with title tag
+|\  
+| * 232c296 (myproject) changed index.html from myproject
+* | aebe8f6 changed html title tag from master
+|/  
+* 65c8759 added dark theme and changed project name
+* 8beabad added index.html
+* 2218cf3 added commands.txt for revert operation
+* 185cf8f Revert "Revert "file1.txt added in revert operation""
+* 31b9024 Revert "file2.txt added in revert operation"
+* 37d0787 Revert "now this file has been reverted"
+* 73b4eef modified the file that has to be reverted now
+* 3f49ddf file2.txt added in revert operation
+* 9f67794 file1.txt added for revert operation
+* fa7028c commands for rebase added
+* 7725f3c (uppercase2) testuppercase created
+* 3daf36e added commands for fast forward merge
+* 7fae474 file2.txt added from feature/uppercase branch
+* 7b242f5 file1.txt added from master
+* 357753c added commands file for 3 way merge operation
+*   819a8f2 Merge branch 'greeting'
+|\  
+| * 83bfc0b (greeting) added greeting.txt from greeting branch
+* | a59b0dc updated README.md
+|/  
+* e82e99f added commands for forward merge
+*   72bdf0d Merge branch 'feature/uppercase'
+|\  
+| * a6493a3 greeting.txt from feature/uppercase
+| * 7727858 (origin/mybranch2) commands.txt from mybranch2
+| * 7f7bd2e file1.txt from mybranch2
+* | fd4dc56 added commands.txt for branching basics
+* | 5b10b80 file1.txt from master
+|/  
+* 2a7fcec (mybranch) added commands.txt for staging task
+* f7f10f8 added file.txt
+* bc11585 deleted file.txt
+* 5688119 file.txt added
+* 916a2f9 Added README.md
+* a22f2d0 added commands.md file
+* 6ad258d file changed for second time
+* 6329ecd file changed for first time
+* 2234024 created test.txt empty file
+(base) azeem@azeem:~/Zemoso/Git Tasks$ 
