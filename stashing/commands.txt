@@ -1,0 +1,122 @@
+(base) azeem@azeem:~/Zemoso/Git Tasks$ mkdir "stashing"
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano stashing/test1.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano bug.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add bug.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "added bug.txt"
+[master 609f45c] added bug.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 bug.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git stash
+No local changes to save
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	stashing/
+
+nothing added to commit but untracked files present (use "git add" to track)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano stashing/test2.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add stashing/test2.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   stashing/test2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	stashing/test1.txt
+
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git stash
+Saved working directory and index state WIP on master: 609f45c added bug.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ nano bug.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add bug.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "the bug is fixed"
+[master 2bac99e] the bug is fixed
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git push
+Username for 'https://github.com': azeem110201
+Password for 'https://azeem110201@github.com': 
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 538 bytes | 538.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/azeem110201/Version-Control.git
+   635f25d..2bac99e  master -> master
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git stash list
+stash@{0}: WIP on master: 609f45c added bug.txt
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git stash apply 0
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   stashing/test2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	stashing/test1.txt
+
+(base) azeem@azeem:~/Zemoso/Git Tasks$ code .
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git reset --hard HEAD
+HEAD is now at 2bac99e the bug is fixed
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git stash --index
+usage: git stash list [<options>]
+   or: git stash show [<options>] [<stash>]
+   or: git stash drop [-q|--quiet] [<stash>]
+   or: git stash ( pop | apply ) [--index] [-q|--quiet] [<stash>]
+   or: git stash branch <branchname> [<stash>]
+   or: git stash clear
+   or: git stash [push [-p|--patch] [-k|--[no-]keep-index] [-q|--quiet]
+          [-u|--include-untracked] [-a|--all] [-m|--message <message>]
+          [--] [<pathspec>...]]
+   or: git stash save [-p|--patch] [-k|--[no-]keep-index] [-q|--quiet]
+          [-u|--include-untracked] [-a|--all] [<message>]
+
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git stash apply 0 --index 
+<stdin>:7: trailing whitespace.
+this is test2 file important code 
+warning: 1 line adds whitespace errors.
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   stashing/test2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	stashing/test1.txt
+
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git stash drop 0
+Dropped refs/stash@{0} (764ee16692ad0d2eef355220c43e5fc91b171aae)
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git log -5 --oneline
+2bac99e (HEAD -> master, origin/master) the bug is fixed
+609f45c added bug.txt
+635f25d added squashing command.txt
+8d22e7a squashing file1
+66a3d61 added command.txt for amend
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git add stashing/test1.txt 
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   stashing/test1.txt
+	new file:   stashing/test2.txt
+
+(base) azeem@azeem:~/Zemoso/Git Tasks$ git commit -m "added stashed file as new features"
+[master 2eb0ffa] added stashed file as new features
+ 2 files changed, 2 insertions(+)
+ create mode 100644 stashing/test1.txt
+ create mode 100644 stashing/test2.txt
